@@ -21,14 +21,30 @@ const TodoLogic = ()=> {
       completed: false,
     },
   ]);
-
+const handleChange = (id)=>{
+       setTodos((prevState)=>
+        prevState.map((todo)=>{
+           if(todo.id===id){
+            return{
+                ...todo,
+                completed: !todo.completed,
+                
+            }
+            
+           }
+           return todo;
+        })
+       )
+    }
+   
   return(
     <div>
         <Header />
         <InputTodo />
-        <TodoList todosProps ={todos} setTodos={setTodos}/>
+        <TodoList todosProps ={todos} handleChange={handleChange}/>
     </div>
   )
+   
 }
 
 export default TodoLogic;

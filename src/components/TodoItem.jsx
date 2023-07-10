@@ -1,8 +1,10 @@
-function TodoItem({ItemProp, setTodos}){
+function TodoItem({itemProp, handleChange}){
+
+ 
     return(
         <li>
-            <input type='checkbox'/>
-            {ItemProp.title}
+            <input type='checkbox' checked={itemProp.completed} onChange={() => handleChange(itemProp.id)} />
+            {itemProp.title}
         </li>
     )
 }

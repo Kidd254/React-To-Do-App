@@ -1,15 +1,16 @@
 import TodoItem from "./TodoItem";
 
-function TodoList({todosProps, setTodos}){
+function TodoList({todosProps, handleChange}){
     return (
         <div>
             <ul>
-                {todosProps.map((todos)=>(
-                    <TodoItem key={todos.id} ItemProp={todos} setTodos={setTodos} />
+                {todosProps.map((todo)=>(
+                    <TodoItem key={todo.id} itemProp={todo} handleChange={handleChange} />
                 ))}
             </ul>
         </div>
     )
 
 }
+
 export default TodoList;
