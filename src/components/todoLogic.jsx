@@ -2,6 +2,8 @@ import { useState } from "react";
 import InputTodo from "./InputTodo";
 import TodoList from "./TodoList";
 import Header from "./Header";
+import { v4 as uuidv4 } from "uuid";
+
 
 const TodoLogic = ()=> { 
   const [todos, setTodos] = useState([
@@ -41,11 +43,21 @@ const handleChange = (id)=>{
             return todo.id !== id;
         })])
     }
+
+    const addTodo =(title)=>{
+        const newtask= {
+            id: uuidv4(),
+            title: title,
+            completed: false,
+        };
+
+        setTodos([...todos, newtask])
+    }
   return(
     <div>
         <Header />
-        <InputTodo />
-        <TodoList todosProps ={todos} handleChange={handleChange} deleteTodo={deleteTodo}/>
+        <InputTodo addTodo={addTodo}/>
+        <TodoList  todosProps ={todos} handleChange={handleChange} deleteTodo={deleteTodo}/>
     </div>
   )
    

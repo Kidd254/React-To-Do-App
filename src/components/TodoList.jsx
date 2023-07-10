@@ -2,7 +2,7 @@ import TodoItem from "./TodoItem";
 
 function TodoList({todosProps, handleChange, deleteTodo}){
     return (
-        <div>
+        <div className="list">
             <ul>
                 {todosProps.map((todo)=>(
                     <TodoItem key={todo.id} itemProp={todo} handleChange={handleChange} deleteTodo={deleteTodo}/>

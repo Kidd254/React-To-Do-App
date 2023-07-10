@@ -1,8 +1,26 @@
-function InputTodo(){
+import { useState } from "react";
+
+function InputTodo({addTodo}){
+    const[title, setTitle] = useState('');
+
+      const handleChange = (e) => {
+    setTitle(e.target.value);
+  };
+
+    const handleSubmit = (e)=>{
+        if (title.trim()) {
+        e.preventDefault();
+        addTodo(title);
+        setTitle('');
+        } else {
+            alert("please add item")
+        }
+    }
     return(
         <div className="input">
-        <form>
-        <input type="text" id="input" placeholder="Add to do"/>
+        <form className= 'form' onSubmit= {handleSubmit}>
+        <input class='input-text' type="text" value={title} id="input" placeholder="Add to do..." onChange={handleChange}/>
+        <button class="input-submit">Submit</button>
         </form>
         </div>
     )
