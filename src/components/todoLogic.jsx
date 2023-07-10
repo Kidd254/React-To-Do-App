@@ -36,12 +36,16 @@ const handleChange = (id)=>{
         })
        )
     }
-   
+    const deleteTodo= (id)=>{
+        setTodos([...todos.filter((todo)=>{
+            return todo.id !== id;
+        })])
+    }
   return(
     <div>
         <Header />
         <InputTodo />
-        <TodoList todosProps ={todos} handleChange={handleChange}/>
+        <TodoList todosProps ={todos} handleChange={handleChange} deleteTodo={deleteTodo}/>
     </div>
   )
    
