@@ -20,7 +20,7 @@ function InputTodo({ addTodo }) {
     <div className="input">
       <form className="form" onSubmit={handleSubmit}>
         <input className="input-text" type="text" value={title} id="input" placeholder="Add to do..." onChange={handleChange} />
-        <button className="input-submit">Submit</button>
+        <button type="submit" className="input-submit">Submit</button>
       </form>
     </div>
   );
