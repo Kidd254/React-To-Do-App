@@ -1,29 +1,29 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-function InputTodo({addTodo}){
-    const[title, setTitle] = useState('');
+function InputTodo({ addTodo }) {
+  const [title, setTitle] = useState('');
 
-      const handleChange = (e) => {
+  const handleChange = (e) => {
     setTitle(e.target.value);
   };
 
-    const handleSubmit = (e)=>{
-        if (title.trim()) {
-        e.preventDefault();
-        addTodo(title);
-        setTitle('');
-        } else {
-            alert("please add item")
-        }
+  const handleSubmit = (e) => {
+    if (title.trim()) {
+      e.preventDefault();
+      addTodo(title);
+      setTitle('');
+    } else {
+      alert('please add item');
     }
-    return(
-        <div className="input">
-        <form className= 'form' onSubmit= {handleSubmit}>
-        <input class='input-text' type="text" value={title} id="input" placeholder="Add to do..." onChange={handleChange}/>
-        <button class="input-submit">Submit</button>
-        </form>
-        </div>
-    )
+  };
+  return (
+    <div className="input">
+      <form className="form" onSubmit={handleSubmit}>
+        <input className="input-text" type="text" value={title} id="input" placeholder="Add to do..." onChange={handleChange} />
+        <button className="input-submit">Submit</button>
+      </form>
+    </div>
+  );
 }
 
 export default InputTodo;
